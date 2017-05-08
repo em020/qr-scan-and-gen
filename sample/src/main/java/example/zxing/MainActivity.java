@@ -84,6 +84,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void qrGenActivity(View view) {
+        startActivity(new Intent(this, QRGenActivity.class));
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);

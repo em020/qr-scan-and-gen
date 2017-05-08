@@ -61,8 +61,24 @@ dependencies {
 
     // For development purposes only
     // https://github.com/square/leakcanary
+    compile 'com.github.kenglxn.QRGen:android:2.2.0'
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support:support-v13:25.2.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 }
+
+// 在assemble任务完成后显示总方法数的插件
+buildscript {
+    repositories {
+        mavenCentral() // or jcenter()
+    }
+
+    dependencies {
+        classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.6.1'
+    }
+}
+
+// make sure this line comes *after* you apply the Android plugin
+apply plugin: 'com.getkeepsafe.dexcount'
